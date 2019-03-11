@@ -122,9 +122,11 @@ if (getenv('LAGOON_ROUTES')) {
    );
 }
 
-### Temp directory
-if (getenv('TMP')) {
-  $config['system.file']['path']['temporary'] = getenv('TMP');
+### Public, private and temporary files paths.
+if (getenv('LAGOON')) {
+  $conf['file_public_path'] = 'sites/default/files';
+  $conf['file_private_path'] = 'sites/default/files/private';  
+  $config['system.file']['path']['temporary'] = 'sites/default/files/private/tmp';
 }
 
 ### Hash Salt
