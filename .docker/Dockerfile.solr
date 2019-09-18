@@ -2,9 +2,16 @@
 # @see /.docker/README.md
 #
 
-ARG GOVCMS_IMAGE_VERSION=latest
+ARG GOVCMS_SOLR_VERSION
 
-FROM govcms8lagoon/solr:${GOVCMS_IMAGE_VERSION}
+# GovCMS Lagoon Solr layer preconfigures the Drupal core
+# with the default configuration provided by the solr
+# module.
+#
+# The base amazeeio/solr image doesn't create the drupal core
+# so we can use this and then add our solr configurations over
+# the top to configure solr.
+FROM amazeeio/solr:${GOVCMS_SOLR_VERSION:-6.6}
 
 # Copy the Solr configuration files.
 COPY .docker/config/solr /solr-conf/conf
@@ -15,4 +22,5 @@ RUN sed -i -e "s#<dataDir>\${solr.data.dir:}#<dataDir>/var/solr/\${solr.core.nam
 
 USER solr
 RUN precreate-core drupal /solr-conf
+
 CMD ["solr-foreground"]
