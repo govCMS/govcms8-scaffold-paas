@@ -18,4 +18,9 @@ web/sites/*/services.local.yml
 # Test and CI artifacts.
 tests/behat/screenshots
 web/sites/simpletest
+
+# Possible temporary drupal console bug.
+console
+
+# Current location where audit application runs from, required so drush works with drutiny.
 audit-site
