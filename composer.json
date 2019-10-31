@@ -4,15 +4,15 @@
     "type": "project",
     "license": "GPL-2.0-or-later",
     "repositories": {
-        "govcms": {
-            "type": "composer",
-            "url": "https://satis.govcms.gov.au/"
-        },
+        "govcms": { "type": "composer", "url": "https://satis.govcms.gov.au/" },
+        "whitelist": { "type": "composer", "url": "https://satis.govcms.gov.au/whitelist/" },
+        "project": { "type": "path", "url": "custom" },
         "packagist.org": false
     },
     "require": {
         "govcms/govcms": "~1",
-        "govcms/scaffold-tooling": "~1"
+        "govcms/scaffold-tooling": "~1",
+        "govcms/project": "*"
     },
     "require-dev": {
         "govcms/require-dev": "~1"
