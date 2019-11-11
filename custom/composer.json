@@ -1,6 +1,0 @@
-{
-    "name": "govcms/project",
-    "description": "Defined additional modules for this site from https://satis.govcms.gov.au/whitelist",
-    "require": {
-    }
-}

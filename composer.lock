@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f371d7cef7643828aec1066fe353a90",
+    "content-hash": "d2f7ea39f967571f872b8b381543a72b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -8747,7 +8747,8 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
-                }
+                },
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -9178,6 +9179,17 @@
             "time": "2018-06-29T15:13:57+00:00"
         },
         {
+            "name": "govcms/custom",
+            "version": "dev-allow-whitelist-local-includes",
+            "dist": {
+                "type": "path",
+                "url": "custom/composer",
+                "reference": "353cee90d5dbcd00194131bda95dad609aa1f4d1"
+            },
+            "type": "library",
+            "description": "Defined additional patches, and modules from https://satis.govcms.gov.au/whitelist"
+        },
+        {
             "name": "govcms/govcms",
             "version": "1.0.0-beta9",
             "source": {
@@ -9365,17 +9377,6 @@
                 "govCMS8"
             ],
             "time": "2019-09-20T04:56:01+00:00"
-        },
-        {
-            "name": "govcms/project",
-            "version": "dev-develop",
-            "dist": {
-                "type": "path",
-                "url": "custom",
-                "reference": "0aad8a3d73c48d812e035c01f6611a3df17c504a"
-            },
-            "type": "library",
-            "description": "Defined additional modules for this site from https://satis.govcms.gov.au/whitelist"
         },
         {
             "name": "govcms/scaffold-tooling",

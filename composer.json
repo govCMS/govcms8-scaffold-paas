@@ -6,13 +6,13 @@
     "repositories": {
         "govcms": { "type": "composer", "url": "https://satis.govcms.gov.au/" },
         "whitelist": { "type": "composer", "url": "https://satis.govcms.gov.au/whitelist/" },
-        "project": { "type": "path", "url": "custom" },
+        "custom": { "type": "path", "url": "custom/composer" },
         "packagist.org": false
     },
     "require": {
         "govcms/govcms": "~1",
         "govcms/scaffold-tooling": "~1",
-        "govcms/project": "*"
+        "govcms/custom": "*"
     },
     "require-dev": {
         "govcms/require-dev": "~1"
@@ -46,6 +46,7 @@
     },
     "extra": {
         "enable-patching": true,
+        "patches-file": "custom/composer/patches.json",
         "patchLevel": {
             "drupal/core": "-p2"
         },
