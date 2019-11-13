@@ -1,7 +1,14 @@
 # GovCMS8 PaaS Project Scaffolding
 
-This is a composer project which builds a Drupal 8 GovCMS site ready
-for hosting on the GovCMS platform (Lagoon). To create a project run:
+This is a composer project which builds a Drupal 8 GovCMS **PaaS** site ready for
+hosting on the GovCMS platform (Lagoon).
+
+**Note**: If you are a new GovCMS customer visiting this page on
+[Github](https://github.com/govCMS/govcms8-scaffold-paas)
+you may prefer to wait for the GovCMS service desk to create your project in Gitlab.
+
+For testing GovCMS separately to the GovCMS platform, you can create a project
+by running:
 
 ```
 composer create-project govcms/govcms8-scaffold-paas MY_PROJECT
@@ -14,5 +21,5 @@ composer create-project govcms/govcms8-scaffold-paas MY_PROJECT
 
 ## Customising this README
 
-Once your project is set up, you may wish to customise this README to suit your
-project.
+If you have cloned this project from GovCMS Gitlab, you may customise this README
+with specific information about your site.
