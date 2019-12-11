@@ -33,7 +33,7 @@ tasks:
         command: drush en -y govcms_lagoon && drush pmu -y govcms_lagoon
         service: cli
     - run:
-        name: Enable non-production modules.
+        name: Enable non-production modules
         command: if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush en stage_file_proxy -y; fi
         service: cli
     - run:
