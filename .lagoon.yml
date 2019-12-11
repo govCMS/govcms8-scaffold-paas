@@ -11,7 +11,7 @@ tasks:
         name: Sync from master for new environments
         command: |
           INSTALLED=(tables=$(drush sqlq 'show tables;') && [ -z "$tables" ])
-          if [[ ! "$INSTALLED" ]] && [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then govcms-sync @govcms.prod; fi
+          if [[ ! "$INSTALLED" ]] && [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush sql-sync @govcms.prod @self -y; fi
         service: cli
     - run:
         name: Database updates
