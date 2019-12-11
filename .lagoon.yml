@@ -1,6 +1,16 @@
 docker-compose-yaml: docker-compose.yml
 
-# Note for devops.
+environments:
+  master:
+    types:
+      mariadb: mariadb-shared
+    cronjobs:
+      - name: drush cron
+        schedule: "0 * * * *"
+        command: 'drush cron --root=/app'
+        service: cli
+
+# Note regarding tasks in the scaffold.
 # Please avoid making scripts more than one or two lines, and avoid if/else logic.
 # When PaaS users or the support team modify this file, it should be easy to turn things on and off.
 
@@ -9,7 +19,7 @@ tasks:
     - run:
         name: Snapshot the database and config
         command: |
-          # @todo Move to https://github.com/govCMS/scaffold-tooling/tree/develop/scripts
+          # @todo This is too complex, ideally move to https://github.com/govCMS/scaffold-tooling/tree/develop/scripts
           # @see https://github.com/govCMS/govcms8lagoon/pull/111
           cd /app
 
@@ -64,14 +74,4 @@ tasks:
         command: |
           BACKUP="/app/web/sites/default/files/private/backups/pre-deploy-dump.sql.gz"
           if -f "$BACKUP"; then mv "$BACKUP" "$BACKUP.last-good.gz"; fi
-        service: cli
-
-environments:
-  master:
-    types:
-      mariadb: mariadb-shared
-    cronjobs:
-      - name: drush cron
-        schedule: "0 * * * *"
-        command: 'drush cron --root=/app'
         service: cli
