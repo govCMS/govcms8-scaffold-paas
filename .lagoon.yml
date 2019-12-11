@@ -1,11 +1,53 @@
 docker-compose-yaml: docker-compose.yml
 
 tasks:
+  pre-rollout:
+    - run:
+        name: Snapshot the database and config
+        command: govcms-pre-deploy-backup
+        service: cli
+        shell: bash
   post-rollout:
     - run:
-        name: Deploy GovCMS
-        command: govcms-deploy
+        name: Sync from master for new environments
+        command: if [[ "$LAGOON_GIT_BRANCH" != "master" ]]; then govcms-sync-from @govcms.prod; fi
         service: cli
+        shell: bash
+    - run:
+        name: Database updates
+        command: drush -y updb
+        service: cli
+    - run:
+        name: Config import
+        command: |
+            # Uncomment below to enable.
+            # drush cim -y sync
+            # if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush cim -y dev --partial; fi
+        service: cli
+        shell: bash
+    - run:
+        name: Cache rebuild
+        command: drush -y cr
+        service: cli
+    - run:
+        name: Ensure govcms/lagoon modules are enabled
+        command: drush en -y govcms_lagoon && drush pmu -y govcms_lagoon
+        service: cli
+    - run:
+        name: Enable non-production modules.
+        command: |
+          if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then
+            drush en stage_file_proxy -y
+          fi
+        service: cli
+    - run:
+        name: Preserve the backup from this successful post-rollout
+        command: |
+          BACKUP=/app/web/sites/default/files/private/backups/pre-deploy-dump.sql.gz
+          if -f "$BACKUP"; then mv "$BACKUP" "$BACKUP.last-good.gz"; fi
+        service: cli
+        shell: bash
+
 
 environments:
   master:
