@@ -4,7 +4,7 @@ tasks:
   pre-rollout:
     - run:
         name: Snapshot the database and config
-        command: govcms-pre-deploy-backup
+        command: govcms-pre-deploy-backup "$LAGOON_ENVIRONMENT_TYPE"
         service: cli
         shell: bash
   post-rollout:
