@@ -10,7 +10,9 @@ tasks:
   post-rollout:
     - run:
         name: Sync from master for new environments
-        command: if tables=$(drush sqlq 'show tables;') && [ -z "$tables" ] && [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then govcms-sync-from @govcms.prod; fi
+        command: |
+          INSTALLED=(tables=$(drush sqlq 'show tables;') && [ -z "$tables" ])
+          if [[ ! "$INSTALLED" ]] && [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then govcms-sync @govcms.prod; fi
         service: cli
         shell: bash
     - run:
@@ -20,9 +22,9 @@ tasks:
     - run:
         name: Config import
         command: |
-            # Uncomment below to enable.
-            # drush cim -y sync
-            # if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush cim -y dev --partial; fi
+          # Uncomment below to enable.
+          # drush cim -y sync
+          # if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush cim -y dev --partial; fi
         service: cli
         shell: bash
     - run:
