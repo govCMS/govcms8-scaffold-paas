@@ -6,7 +6,6 @@ tasks:
         name: Snapshot the database and config
         command: govcms-pre-deploy-backup "$LAGOON_ENVIRONMENT_TYPE"
         service: cli
-        shell: bash
   post-rollout:
     - run:
         name: Sync from master for new environments
@@ -14,19 +13,17 @@ tasks:
           INSTALLED=(tables=$(drush sqlq 'show tables;') && [ -z "$tables" ])
           if [[ ! "$INSTALLED" ]] && [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then govcms-sync @govcms.prod; fi
         service: cli
-        shell: bash
     - run:
         name: Database updates
-        command: drush -y updb
+        command: drush -y updatedb
         service: cli
     - run:
         name: Config import
         command: |
           # Uncomment below to enable.
           # drush cim -y sync
-          # if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush cim -y dev --partial; fi
+          # if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush config:import -y dev --partial; fi
         service: cli
-        shell: bash
     - run:
         name: Cache rebuild
         command: drush -y cr
@@ -37,10 +34,7 @@ tasks:
         service: cli
     - run:
         name: Enable non-production modules.
-        command: |
-          if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then
-            drush en stage_file_proxy -y
-          fi
+        command: if [[ "$LAGOON_ENVIRONMENT_TYPE" != "production" ]]; then drush en stage_file_proxy -y; fi
         service: cli
     - run:
         name: Preserve the backup from this successful post-rollout
@@ -48,8 +42,6 @@ tasks:
           BACKUP="/app/web/sites/default/files/private/backups/pre-deploy-dump.sql.gz"
           if -f "$BACKUP"; then mv "$BACKUP" "$BACKUP.last-good.gz"; fi
         service: cli
-        shell: bash
-
 
 environments:
   master:
