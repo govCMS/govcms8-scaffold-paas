@@ -117,7 +117,7 @@ commands:
     usage: Print information about this project.
     cmd: |
       echo "Project                  : " $(ahoy run "echo \$LAGOON_PROJECT")
-      echo "Site local URL           : " $(ahoy run "echo \$LOCALDEV_URL")
+      echo "Site local URL           : " $(ahoy run "echo \$LAGOON_ROUTE")
       echo "DB port on host          : " $(docker port $(docker-compose ps -q mariadb) 3306 | cut -d : -f 2)
       if [ "$1" ]; then
         echo "One-time login           : " $(ahoy login -- --no-browser)
