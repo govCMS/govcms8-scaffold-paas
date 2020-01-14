@@ -23,6 +23,3 @@ composer create-project govcms/govcms8-scaffold-paas MY_PROJECT
 
 If you have cloned this project from GovCMS Gitlab, you may customise this README
 with specific information about your site.
-
-## Releasing
-Please refer to [RELEASING.md](RELEASING.md). 
