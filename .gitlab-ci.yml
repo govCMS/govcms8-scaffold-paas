@@ -6,5 +6,5 @@ include:
 
   # The primary default GovCMS GitLab CI configuration.
   - project: 'govcms/scaffold-tooling'
-    ref: "1.0.0"
+    ref: "feature/temp-update-ci-image-php-7.3"
     file: '.gitlab-ci-main.yml'
