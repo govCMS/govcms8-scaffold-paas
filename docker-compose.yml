@@ -10,7 +10,7 @@ x-lagoon-local-dev-url:
 
 # See GOVCMS_IMAGE_VERSION in "Variables" at https://github.com/govCMS/govCMS8/wiki
 x-govcms-image-version:
-  &govcms-image-version ${GOVCMS_IMAGE_VERSION:-latest}
+  &govcms-image-version ${GOVCMS_IMAGE_VERSION:-8.5.0}
 
 x-volumes:
   &default-volumes
