@@ -15,8 +15,12 @@ vendor/
 web/sites/*/settings.local.php
 web/sites/*/services.local.yml
 
-# Ignore SimpleTest multi-site environment.
+# Test and CI artifacts.
+tests/behat/screenshots
 web/sites/simpletest
 
-# behat screenshots
-tests/behat/screenshots
+# Possible temporary drupal console bug.
+console
+
+# Current location where audit application runs from, required so drush works with drutiny.
+audit-site

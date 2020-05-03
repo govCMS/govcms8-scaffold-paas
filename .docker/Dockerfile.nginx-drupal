@@ -1,10 +1,10 @@
 ##
-# @see /.docker/README.md
+# @see  https://govcms.gov.au/wiki-advanced#docker
 #
 
 ARG CLI_IMAGE
 
-ARG GOVCMS_IMAGE_VERSION=latest
+ARG GOVCMS_IMAGE_VERSION=8.5.0
 
 FROM ${CLI_IMAGE} as cli
 FROM govcms8lagoon/nginx-drupal:${GOVCMS_IMAGE_VERSION}
