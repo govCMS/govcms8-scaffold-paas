@@ -15,7 +15,8 @@
         "govcms/custom": "*",
         "govcms/govcms": "~1",
         "govcms/scaffold-tooling": "~2",
-        "symfony/event-dispatcher": "4.3.11 as 3.4.35"
+        "symfony/event-dispatcher": "4.3.11 as 3.4.35",
+        "govcms/custom": "*"
     },
     "require-dev": {
         "govcms/require-dev": "~1"
