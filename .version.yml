@@ -5,4 +5,4 @@
 # e.g. site audits, automated backups.
 version: 8
 type: paas
-scaffold: 2.0.0
+scaffold: 2.1.0
