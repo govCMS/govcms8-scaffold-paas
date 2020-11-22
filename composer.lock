@@ -7706,12 +7706,9 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.1",
-                    "datestamp": "1541600580",
+                    "datestamp": "1568275684",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8558,9 +8555,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.0-alpha4",
                     "datestamp": "1521586980",
@@ -8572,7 +8566,8 @@
                 "patches_applied": {
                     "The tfa.settings route should use the permission 'admin tfa settings' - https://www.drupal.org/project/tfa/issues/2943972": "https://www.drupal.org/files/issues/2943972-2.patch",
                     "Bad UX around 'required to setup TFA' concept and users who have skipped validation too many times - https://www.drupal.org/project/tfa/issues/2937336": "https://www.drupal.org/files/issues/2019-03-01/2937336-17.patch",
-                    "Users' recovery codes exposed to admin users - https://www.drupal.org/project/tfa/issues/3075304": "https://www.drupal.org/files/issues/2019-08-16/tfa-3075304_2.patch"
+                    "Users' recovery codes exposed to admin users - https://www.drupal.org/project/tfa/issues/3075304": "https://www.drupal.org/files/issues/2019-08-16/tfa-3075304_2.patch",
+                    "Create Email one-time-code Validation Plugin & related Setup Plugin - https://www.drupal.org/project/tfa/issues/2930541": "https://www.drupal.org/files/issues/2020-08-12/tfa-2930541-16.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8591,6 +8586,10 @@
                 {
                     "name": "greggles",
                     "homepage": "https://www.drupal.org/user/36762"
+                },
+                {
+                    "name": "jcnventura",
+                    "homepage": "https://www.drupal.org/user/122464"
                 },
                 {
                     "name": "nerdstein",
@@ -9528,12 +9527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/govCMS/scaffold-tooling.git",
-                "reference": "c00c6c2bae5616b0c7612154c357abed6ac152af"
+                "reference": "b7606315e295c8c0dfa28050cd51e26b60e15156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govCMS/scaffold-tooling/zipball/c00c6c2bae5616b0c7612154c357abed6ac152af",
-                "reference": "c00c6c2bae5616b0c7612154c357abed6ac152af",
+                "url": "https://api.github.com/repos/govCMS/scaffold-tooling/zipball/b7606315e295c8c0dfa28050cd51e26b60e15156",
+                "reference": "b7606315e295c8c0dfa28050cd51e26b60e15156",
                 "shasum": ""
             },
             "require": {
@@ -9583,7 +9582,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "A variety of standard config, scripts and packages to support GovCMS scaffold.",
-            "time": "2020-11-19T18:39:46+00:00"
+            "time": "2020-11-22T23:32:10+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -16245,6 +16244,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-11-27T05:48:46+00:00"
         },
         {
